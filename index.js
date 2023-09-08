@@ -53,6 +53,6 @@ console.log(JSON.stringify(designs));
 for (let d of designs) {
     let s = new Date().getTime();
     await db.query(d, {limit: 0});
-    console.log(`indexed ${d} in ${new Date().getTime() - start}ms`);
+    console.log(`indexed ${d} in ${new Date().getTime() - s}ms`);
 }
 console.log(`all done in ${new Date().getTime() - start}ms`);
