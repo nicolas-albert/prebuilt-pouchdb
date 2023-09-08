@@ -42,7 +42,7 @@ let designs = await db.allDocs({
     endkey: '_design_',
     include_docs: true
 });
-designs = designs.rows.filter(d => d.doc?.views && d.doc?.language != 'query').map(d => {
+designs = designs.rows.filter(d => d.doc?.views && d.doc?.language != 'query' && d.doc?._id != '_design/c8o').map(d => {
     let views = [];
     for (let v in d.doc.views) {
         views.push(`${d.doc._id.substring(8)}/${v}`);
